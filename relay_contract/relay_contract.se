@@ -1,0 +1,9 @@
+# address to send to
+# addresses have their own primitive type in serpent
+macro DESTINATION_ADDRESS: 0x3b2097eE1B3cCcE5ffaFB43fA16042dE7EDB54Ee
+
+def relay:
+  if(!send(DESTINATION_ADDRESS, msg.value)):
+    return(0) # failure
+  else:
+    return(1) # success
