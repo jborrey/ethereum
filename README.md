@@ -11,7 +11,9 @@ Lessons 3 and onwards will just give you more experience.
 
 1. [Setup](setup.md) - Installing the tools you will need.
 1. [Relay Contract](/relay_contract) - A very simple first contract to learn the basics.
-2. [Secret Santa Contract](/secret_santa_contract) - Why ethereum is a very special platform.
-3. [Front end](/relay_contract_with_front_end) - Writing a front end for your ethereum application.
-4. [TDB](/tdb_contract) - More complex contract showing many cool things you can do with ethereum.
-5. [Security](/security) - Many things can go wrong, here are some best practices.
+1. [Secret Santa Contract](/secret_santa_contract) - Why ethereum is a very special platform.
+
+## Useful Reading
+1. [White paper](https://github.com/ethereum/wiki/wiki/White-Paper)
+2. [Yellow paper](http://gavwood.com/paper.pdf)
+3. [Serpent Tutorial](https://mc2-umd.github.io/ethereumlab/docs/serpent_tutorial.pdf)
