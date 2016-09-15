@@ -45,6 +45,8 @@ While your node is syncing we can download the Mist wallet. When Mist runs it wi
 Once you have Mist running, switch it to the testnet (aka Morden) by going to `Developt > Network > Testnet (Morden)` and create an account.
 Once you have an address go to the [ZeroGox faucet](https://zerogox.com/ethereum/wei_faucet) and enter you address. A faucet is a place where some free ethereum will be given to you. It is on the testnet and so is not actually worth anything but is useful for testing. After ~20 seconds the ether should appear in you account in Mist.
 
+If you decide at some point that you want to use real ether on the main net, you can easily buy ether through Mist thanks to the [Coinbase buy widget integration](https://github.com/ethereum/mist/releases/tag/0.8.2). The limits on this are just $5 USD per day though - should you want to buy more, you can go directly to [Coinbase](https://coinbase.com) (where I actually work) and buy a more there.
+
 ### Dev Tools for Ethereum Contracts
 Currently, there are two languages that you can write contracts in - Serpent (more python like) and Solidity (more Javascript like). In this tutorial I will be using Serpent. We will need the following:
 
@@ -96,7 +98,7 @@ sudo python setup.py install
 # if you get "error: ('The read operation timed out',)", just re-run the command
 ```
 
-##### Test Editor
+##### Text Editor
 If you use Vim you can add these lines to your `~/.vimrc` file to quickly get some syntax highlighting on your serpent file. Assumes you already have `syntax on`.
 ```
 " python highlighting for .se (serpent) files

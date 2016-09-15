@@ -34,8 +34,8 @@ $ python # either locally or in docker container
 >>> miner_addr
 b'\xdc\xec\xea\xf3\xfc\\\nc\xd1\x95\xd6\x9b\x1a\x90\x01\x1b{\x19e\r'
 
-# Can ignore this for now, but we are just mining a few blocks into the future
-# to make things cleaner.
+# Can ignore this for now, but we are just mining a few blocks
+# into the future to make things cleaner.
 >>> s.mine(10, coinbase=miner_addr)
 >>> s.block.number
 10
@@ -49,17 +49,28 @@ b'\xdc\xec\xea\xf3\xfc\\\nc\xd1\x95\xd6\x9b\x1a\x90\x01\x1b{\x19e\r'
 >>> s.block.get_balance(miner_addr)
 1000045000000000000000000 # 1.000045 million ether
 
-### deploy contract - this uses gas
-# Someone's balance, in the real world, would have gone down for this
-# but in this simulation we are not accounting for it.
->>> contract = s.abi_contract('relay_contract.se')
+### deploy contract from user 5 - this uses gas.
+# We will inspect the balance of user 5 before and after to see the effet.
+>>> deployer_address = t.accounts[5]
+>>> deployer_key = t.keys[5]
+>>> balance_before_deploy = s.block.get_balance(deployer_address)
+>>> s.block.gas_used # 0
+>>> contract = s.abi_contract('relay_contract.se', sender=deployer_key)
+>>> gas_used_from_deploy = s.block.gas_used # 49186
+>>> balance_after_deploy = s.block.get_balance(deployer_address) # 999999999999999999950814L
+
+>>> balance_after_deploy + gas_used_from_deploy
+1000000000000000000000000L # which is balance_before_deploy
+
+# when a contract is deployed, it is granted an address with a balance
 >>> s.block.get_balance(contract.address)
 0 # as expected, this contract does not hold a balance (and never will)
 
->>> s.block.gas_used
-49186
+# The gas that was spent by the deployer had to go somewhere.
+# Miner earnt the 49186 wei since deploying the contract required computational work.
 >>> s.block.get_balance(miner_addr)
-1000045000000000000049186 # miner earnt 49186 wei since deploying the contract costs gas
+1000045000000000000049186
+
 # Notice they have not received the block reward yet.
 # A block reward for a block just mined will come in the next block.
 
