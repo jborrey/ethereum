@@ -9,7 +9,7 @@ The contract has two functions:
 You cannot build this application if you are some random developer. You can standup a website, but no on is going to believe that you will actually forward the money on to someone - it would be a ponzi scheme. The only groups that could run this website is a bank or some company which has incorporated, has lawyers and contracts. This is a huge barrier to entry. With ethereum, anyone can program how someones money moves and their users will have no trouble trusting them. This is a revolution in finance.
 
 ### If you like to use the secret santa contract, copy the [contract ABI](contract_abi.json) into Mist and you can use it at these addresses:
-  - Main net: ...
+  - Main net: `0x37597770DBc5A75E86726455048398532E269278`
   - Test net: ...
 
 ## Simulation
